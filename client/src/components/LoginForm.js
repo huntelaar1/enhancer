@@ -8,26 +8,26 @@ import Auth from '../utils/auth';
 import { ifError } from 'assert';
 
 const LoginForm = () => {
-    const [userFormData, setUserFormData] = useState({ email: '', password: '' });
+    const [UserData, setUserData] = useState({ email: '', password: '' });
     const [validated] = useState(false);
-    const [showAlert, setShowAlert] = useState(false);
+    const [TriggerAlert, setTriggerAlert] = useState(false);
 
     const [login, { error }] = useMutation(LOGIN_USER);
 
     useEffect(() => {
         if(error) {
-            setShowAlert(true);
+            setTriggerAlert(true);
         } else {
-            setShowAlert(false);
+            setTriggerAlert(false);
         }
     }, [error]);
 
-    const handleInputChange = (event) => {
+    const handleNewInput = (event) => {
         const { name, value } = event.target;
-        setUserFormData({ ...userFormData, [name]: value });
+        setUserData({ ...UserData, [name]: value });
     };
 
-    const handleFormSubmit = async (event) => {
+    const handleNewForm = async (event) => {
         event.preventDefault();
 
         const form = event.currentTarget;
@@ -38,7 +38,7 @@ const LoginForm = () => {
 
         try {
             const { data } = await login({
-                variables: { ...userFormData },
+                variables: { ...UserData },
             });
 
             console.log(data);
@@ -47,7 +47,7 @@ const LoginForm = () => {
             console.error(e);
         }
 
-        setUserFormData({
+        setUserData({
             email: '',
             password: '',
         });
@@ -55,11 +55,11 @@ const LoginForm = () => {
 
     return (
         <>
-            <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+            <Form noValidate validated={validated} onSubmit={handleNewForm}>
                 <Alert
                     dismissible
-                    onClose={() => setShowAlert(false)}
-                    show={showAlert}
+                    onClose={() => setTriggerAlert(false)}
+                    show={TriggerAlert}
                     variant="danger"
                     >
                         Please double-check that you entered your login credentials correctly!
@@ -70,8 +70,8 @@ const LoginForm = () => {
                             type="text"
                             placeholder="Your email address"
                             name="email"
-                            onChange={handleInputChange}
-                            value={userFormData.email}
+                            onChange={handleNewInput}
+                            value={UserData.email}
                             required
                             />
                             <FormControlFeedback type="invalid">
@@ -85,8 +85,8 @@ const LoginForm = () => {
                             type="password"
                             placeholder="Your password"
                             name="password"
-                            onChange={handleInputChange}
-                            value={userFormData.password}
+                            onChange={handleNewInput}
+                            value={UserData.password}
                             required
                             />
                             <FormControlFeedback type="invalid">
@@ -94,7 +94,7 @@ const LoginForm = () => {
                             </FormControlFeedback>
                         </FormGroup>
                         <Button
-                            disabled={!(userFormData.email && userFormData.password)}
+                            disabled={!(UserData.email && UserData.password)}
                             type="submit"
                             variant="success"
                         >

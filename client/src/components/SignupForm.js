@@ -6,9 +6,9 @@ import { ADD_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
-const SignUpForm = () => {
+const LoginForm = () => {
 
-    const [userFormData, setUserFormData] = useState ({
+    const [UserData, setUserData] = useState ({
         username: '',
         email: '',
         password: '',
@@ -16,24 +16,24 @@ const SignUpForm = () => {
 
     const [validated] = useState(false);
 
-    const [showAlert, setShowAlert] = useState (false);
+    const [TriggerAlert, setTriggerAlert] = useState (false);
 
     const [addUser, { error }] = useMutation(ADD_USER);
 
     useEffect(() => {
         if (error) {
-            setShowAlert(true);
+            setTriggerAlert(true);
         } else {
-            setShowAlert(false);
+            setTriggerAlert(false);
         }
     }, [error]);
 
-    const handleInputChange = (event) => {
+    const handleNewInput = (event) => {
         const { name, value } = event.target;
-        setUserFormData({ ...userFormData, [name]: value});
+        setUserData({ ...UserData, [name]: value});
     };
 
-    const handleFormSubmit = async (event) => {
+    const handleNewForm = async (event) => {
         event.preventDefault();
 
         const form = event.currentTarget;
@@ -44,7 +44,7 @@ const SignUpForm = () => {
 
         try {
             const { data } = await addUser({
-                variables: { ...userFormData },
+                variables: { ...UserData },
             });
             console.log(data);
             Auth.login(data.addUser.token);
@@ -52,7 +52,7 @@ const SignUpForm = () => {
             console.error(err);
         }
 
-        setUserFormData({
+        setUserData({
             username: '',
             email: '',
             password: '',
@@ -61,11 +61,11 @@ const SignUpForm = () => {
 
     return (
         <>
-        <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+        <Form noValidate validated={validated} onSubmit={handleNewForm}>
             <Alert
                 dismissible
-                onClose={() => setShowAlert(false)}
-                show={showAlert}
+                onClose={() => setTriggerAlert(false)}
+                show={TriggerAlert}
                 variant="danger"
                 >
                     Please Try to sign-up again.
@@ -77,8 +77,8 @@ const SignUpForm = () => {
                         type="text"
                         placeholder="Your username"
                         name="username"
-                        onChange={handleInputChange}
-                        value={userFormData.username}
+                        onChange={handleNewInput}
+                        value={UserData.username}
                         required
                     />
                     <FormControlFeedback type="invalid">
@@ -92,8 +92,8 @@ const SignUpForm = () => {
                         type="email"
                         placeholder="Your email address"
                         name="email"
-                        onChange={handleInputChange}
-                        value={userFormData.email}
+                        onChange={handleNewInput}
+                        value={UserData.email}
                         required
                     />
                     <FormControlFeedback type="invalid">
@@ -107,8 +107,8 @@ const SignUpForm = () => {
                         type="password"
                         placeholder="Your password"
                         name="password"
-                        onChange={handleInputChange}
-                        value={userFormData.password}
+                        onChange={handleNewInput}
+                        value={UserData.password}
                         required
                     />
                     <FormControlFeedback type="invalid">
@@ -118,9 +118,9 @@ const SignUpForm = () => {
                 <Button
                     disabled={
                         !(
-                            userFormData.username &&
-                            userFormData.email &&
-                            userFormData.password
+                            UserData.username &&
+                            UserData.email &&
+                            UserData.password
                         )
                     }
                     type="submit"
@@ -133,4 +133,4 @@ const SignUpForm = () => {
     );
 };
 
-export default SignUpForm;
+export default LoginForm;
