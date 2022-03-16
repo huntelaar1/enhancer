@@ -1,0 +1,24 @@
+{
+  "name": "enhancer-app",
+  "version": "1.0.0",
+  "description": "Choose images and enhance them in your own way!",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huntelaar1/enhancer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huntelaar1/enhancer/issues"
+  },
+  "homepage": "https://github.com/huntelaar1/enhancer#readme",
+  "dependencies": {
+    "apollo-server-express": "^3.6.4",
+    "express": "^4.17.3",
+    "graphql": "^16.3.0"
+  }
+}
