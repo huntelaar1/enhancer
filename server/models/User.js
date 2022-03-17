@@ -1,7 +1,6 @@
 const { Schema, model} = require('mongoose');
 const bcrypt = require('bcrypt');
 
-// line for importing schema from Art.js for saved art/gallery
 const artSchema = require('./Art');
 
 const userSchema = new Schema(
@@ -23,8 +22,6 @@ const userSchema = new Schema(
         },
         gallery: [artSchema]
     },
-        // set gallery to be an array that adheres to artSchema
-        // , },
     {
         toJSON: {
             virtuals: true,
