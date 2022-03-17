@@ -10,7 +10,7 @@ const artSchema = new Schema({
         type:Number,
         required: true
     },
-    ishighlighted: {
+    isHighlight: {
         type:Boolean
     },
     title: {
