@@ -9,15 +9,16 @@ We’ve always been fascinated by the masterpieces we’ve seen in museums, but 
 
 
 ## Application
-This application was built utilizing MERN technologies. MERN is comprised of a group of technologies primarily MongoDB, Express JS, React JS, and Node JS. Each of the technology tools, contributed to the development of the application's front-end, back-end and supprt functionality to deliver a unique experience for the user.
+This application was built utilizing MERN technologies. MERN is comprised of a collection of robust and powerful technologies used to develop scalable master web apps.  The collection of technologies primarily utilized are MongoDB, Express JS, React JS, and Node JS. Each of the technology tools, contributed to the development of the application's front-end, back-end and supprt functionality to deliver a unique experience for the user.
 
 The application is user friendly and easy to navigate. Users must Sign-Up on the home page to gain access to the application functionality. Once user has successfully established a username and password, the application will present options {TEAM: CONTINUE TO ADD CONTENT.... to search, the ability to create, recreate, save their creations in a personal gallery, consists for the following featuresto 
 
 ## MERN and Support Technologies
-MongoDB: (ADD A DESCRIPTION OF THE TOOL AND AN IMAGE OF WHAT AREA IT ASSISTED IN THE DEVELOPMENT)
-Express JS:(ADD A DESCRIPTION OF THE TOOL AND AN IMAGE OF WHAT AREA IT ASSISTED IN THE DEVELOPMENT)
-React JS: (ADD A DESCRIPTION OF THE TOOL AND AN IMAGE OF WHAT AREA IT ASSISTED IN THE DEVELOPMENT)
-Node JS:(ADD A DESCRIPTION OF THE TOOL AND AN IMAGE OF WHAT AREA IT ASSISTED IN THE DEVELOPMENT)
+MongoDB is an open-source, cross platform and document-oriented database. It saves data, stores it in binary JSON format, permits fast exchanges of data between client and server and stores massive data that is highly scalable.
+Express JS is a modular and lightweight framework which helps build robust and scalable web app by writing fast and securing applications.
+React JS is an open-source JavaScript library used to build user interfaces, facilitates code reusability on multiple platforms and it is fast and scalable.
+Node JS is an open-source and cross-platform, JS runtime environment that is designed to run the JavaScript code on the server-side.
+
 TEAM TO ADD ANY OTHER TECHNOLOGIES USED
 
 ## Home Page
