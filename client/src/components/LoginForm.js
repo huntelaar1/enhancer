@@ -15,7 +15,7 @@ const LoginForm = () => {
     const [login, { error }] = useMutation(LOGIN_USER);
 
     useEffect(() => {
-        if(error) {
+        if (error) {
             setTriggerAlert(true);
         } else {
             setTriggerAlert(false);
@@ -61,45 +61,45 @@ const LoginForm = () => {
                     onClose={() => setTriggerAlert(false)}
                     show={TriggerAlert}
                     variant="danger"
-                    >
-                        Please double-check that you entered your login credentials correctly!
-                    </Alert>
-                    <FormGroup>
-                        <FormLabel htmlFor="email">Email</FormLabel>
-                        <FormControl
-                            type="text"
-                            placeholder="Your email address"
-                            name="email"
-                            onChange={handleNewInput}
-                            value={UserData.email}
-                            required
-                            />
-                            <FormControlFeedback type="invalid">
-                                Please enter an email address!
-                            </FormControlFeedback>
-                    </FormGroup>
+                >
+                    Please double-check that you entered your login credentials correctly!
+                </Alert>
+                <FormGroup>
+                    <FormLabel htmlFor="email">Email</FormLabel>
+                    <FormControl
+                        type="text"
+                        placeholder="Your email address"
+                        name="email"
+                        onChange={handleNewInput}
+                        value={UserData.email}
+                        required
+                    />
+                    <FormControlFeedback type="invalid">
+                        Please enter an email address!
+                    </FormControlFeedback>
+                </FormGroup>
 
-                    <FormGroup>
-                        <FormLabel htmlFor="password">Password</FormLabel>
-                        <FormControl
-                            type="password"
-                            placeholder="Your password"
-                            name="password"
-                            onChange={handleNewInput}
-                            value={UserData.password}
-                            required
-                            />
-                            <FormControlFeedback type="invalid">
-                                Please enter a password!
-                            </FormControlFeedback>
-                        </FormGroup>
-                        <Button
-                            disabled={!(UserData.email && UserData.password)}
-                            type="submit"
-                            variant="success"
-                        >
-                            Submit
-                        </Button>
+                <FormGroup>
+                    <FormLabel htmlFor="password">Password</FormLabel>
+                    <FormControl
+                        type="password"
+                        placeholder="Your password"
+                        name="password"
+                        onChange={handleNewInput}
+                        value={UserData.password}
+                        required
+                    />
+                    <FormControlFeedback type="invalid">
+                        Please enter a password!
+                    </FormControlFeedback>
+                </FormGroup>
+                <Button
+                    disabled={!(UserData.email && UserData.password)}
+                    type="submit"
+                    variant="success"
+                >
+                    Submit
+                </Button>
             </Form>
         </>
     );
